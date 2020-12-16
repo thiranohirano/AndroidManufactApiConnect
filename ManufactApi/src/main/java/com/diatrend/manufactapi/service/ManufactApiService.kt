@@ -14,6 +14,10 @@ interface ManufactApiService {
     @GET(API_ROOT + "base_info_logs/{id}/")
     fun getBaseInfoLog(@Path("id") id : Int): Call<BaseInfoLogDetail>
 
+    @GET(API_ROOT + "base_info_log_list/")
+    fun getBaseInfoLogs(@Query("delivery_date_after") deliveryDateAfter: String,
+                        @Query("delivery_date_before") deliveryDateBefore: String): Call<List<BaseInfoLog>>
+
     @POST(API_ROOT + "manufact_logs/")
     fun createManufactLog(@Body manufactLog: ManufactLog): Call<ManufactLog>
 
